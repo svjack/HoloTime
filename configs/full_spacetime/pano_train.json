@@ -1,0 +1,18 @@
+{
+  "resolution": 1,
+  "model": "ours_full",
+  "scaling_lr": 0.005,
+  "densify": 3,
+  "test_iteration": 30000,
+  "save_iterations": [30000],
+  "white_background": false,
+  "feature_lr": 0.001,
+  "desicnt": 10,
+  "densify_from_iter": 500,
+  "densify_until_iter": 3000,
+  "densification_interval": 100, 
+  "opacity_reset_interval": 50000, 
+  "rgbfunction": "sandwich",
+  "loader": "panorama",
+  "rdpip": "test_ours_full"
+}

@@ -1,0 +1,36 @@
+omegaconf
+pytorch_lightning==2.4
+einops
+opencv-python
+decord
+natsort
+basicsr
+realesrgan
+ffmpeg-python
+kornia
+open_clip_torch==2.22.0
+diffusers==0.33.1
+transformers==4.51.3
+xformers==0.0.28.post1
+av
+numpy==1.24.0
+
+# venhancer
+easydict
+torchsde
+fairscale
+accelerate
+
+# reconstruct
+ninja
+gdown
+plyfile
+open3d
+trimesh
+git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9
+thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch3
+thirdparty/gaussian_splatting/submodules/forward_full
+thirdparty/gaussian_splatting/submodules/forward_lite
+thirdparty/gaussian_splatting/submodules/simple-knn
+-e thirdparty/mmcv
