@@ -4,19 +4,19 @@
  <a href='https://github.com/PKU-YuanGroup/HoloTime/'><img src='https://img.shields.io/badge/arXiv-2409.02048-b31b1b.svg'></a> &nbsp;
  <a href='https://zhouhyocean.github.io/holotime/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;
  <a href='https://www.youtube.com/watch?v=reJ7H-Pe2MQ'><img src='https://img.shields.io/badge/Youtube-Video-b31b1b.svg'></a>&nbsp;
- <a href='https://huggingface.co/Marblueocean/HoloTime'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a> &nbsp;
+ <a href='https://huggingface.co/Marblueocean/HoloTime'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a> &nbsp;
 
 _**[Haiyang Zhou*](), [Wangbo Yu*](https://scholar.google.com/citations?user=UOE8-qsAAAAJ&hl=zh-CN), [Jiawen Guan](), [Xinhua Cheng](https://cxh0519.github.io/), [Yonghong Tian&dagger;](https://www.pkuml.org/staff/yhtian.html), [Li Yuan&dagger;](https://yuanli2333.github.io/)**_
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5>
 
 
-<br><br>
+<br>
 
 </div>
 
 # 📰 News
 
-* **[2025.4.30]**  🔥🔥🔥 We have released our **Panoramic Animator** model and the inference code of the whole pipeline **HoloTime**.  Welcome to download it from [Huggingface](https://huggingface.co/chestnutlzj/WF-VAE-L-16Chn) and have a try!
+* **[2025.4.30]**  🔥🔥🔥 We have released our **Panoramic Animator** model and the inference code of the whole pipeline **HoloTime**.  Welcome to download it from [Huggingface](https://huggingface.co/Marblueocean/HoloTime) and have a try!
 
 
 # 💡 Introduction
@@ -44,7 +44,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/4dscene/ocean2.png" alt="ocean">
       </td>
       <td>
-        <video src="./assets/4dscene/ocean2.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/7a3b6ecd-23b2-4c7f-a5d6-14aad4d9bf0a" autoplay controls></video>
       </td>
     </tr>
     <tr>
@@ -52,7 +52,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/4dscene/cyberpunk.png" alt="cyberpunk">
       </td>
       <td>
-        <video src="./assets/4dscene/cyberpunk.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/59e916b8-e457-4b88-b80e-aa8c45db0d24" autoplay controls></video>
       </td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/4dscene/temple.png" alt="temple">
       </td>
       <td>
-        <video src="./assets/4dscene/temple.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/fa023f08-04ff-4772-96a4-1976998dae79" autoplay controls></video>
       </td>
     </tr>
   </tbody>
@@ -81,7 +81,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/pano/car.png" alt="car">
       </td>
       <td>
-        <video src="./assets/pano/car.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/a507a6a3-a3db-4bed-89be-6ce1af0f446d" autoplay controls></video>
       </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/pano/aurora.png" alt="aurora">
       </td>
       <td>
-        <video src="./assets/pano/aurora.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/44e2b221-0848-4308-9679-cbf2379cf22b" autoplay controls></video>
       </td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/pano/fire.png" alt="fire">
       </td>
       <td>
-        <video src="./assets/pano/fire.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/2088c136-984f-4591-92f7-f4f978740e90" autoplay controls></video>
       </td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
         <img src="./assets/pano/firework.png" alt="firework">
       </td>
       <td>
-        <video src="./assets/pano/firework.mp4" autoplay controls></video>
+        <video src="https://github.com/user-attachments/assets/95cf74da-aa74-4c47-8314-a0990cb8cd43" autoplay controls></video>
       </td>
     </tr>
   </tbody>
@@ -140,21 +140,21 @@ After installation, please follow the instructions provided [here](./installatio
 The txt file contains text descriptions of panoramas, with each line corresponding to one panorama, sorted according to the natural sort order of the png filenames.
 You can use the text-driven panorama generation models ([PanFusion](https://github.com/chengzhag/PanFusion) or [FLUX](https://huggingface.co/jbilcke-hf/flux-dev-panorama-lora-2)) to create input data, or you can use the files we provide.
 
-2. Download the **Panoramic Animator** model from [Huggingface](https://huggingface.co/chestnutlzj/WF-VAE-L-16Chn) and then put the checkpoint in the checkpoints/holotime directory. (optional as it can be done automatically)
+2. Download the **Panoramic Animator** model from [Huggingface](https://huggingface.co/Marblueocean/HoloTime) and then put the checkpoint in the checkpoints/holotime directory. (optional as it can be done automatically)
 
 3. Run the following command.
 ```bash
 sh run_animator.sh
 ```
 **Panoramic Animator** need 24GB GPU memory.
-[VEnhancer](https://github.com/Vchitect/VEnhancer) need 80GB GPU memory for super resolution and frame interpolation. (optional) 
+VEnhancer need 80GB GPU memory for super resolution and frame interpolation. (optional) 
 
 ## 4D Scene Reconstruction
 After generating the panoramic video, you can transform the panoramic video into 4D scene by running the following command.
 ```bash
 sh run reconstruction.sh
 ```
-Training gaussians need 48GB GPU memory.
+Training Spacetime Gaussians need 48GB GPU memory.
 
 ## 4D Scene Rendering
 Run the following command.
