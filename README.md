@@ -152,14 +152,14 @@ VEnhancer need 80GB GPU memory for super resolution and frame interpolation. (op
 ## 4D Scene Reconstruction
 After generating the panoramic video, you can transform the panoramic video into 4D scene by running the following command.
 ```bash
-sh run reconstruction.sh
+sh run_reconstruction.sh
 ```
 Training Spacetime Gaussians need 48GB GPU memory.
 
 ## 4D Scene Rendering
 Run the following command.
 ```bash
-sh run reconstruction.sh
+sh run_render.sh
 ```
 We provide some preset trajectories [here](utils/trajectory.py).
 
