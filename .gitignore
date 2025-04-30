@@ -16,10 +16,3 @@ thirdparty/sibr_core/*
 thirdparty/*/__pycache__/*
 thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9/diff_gaussian_rasterization_ch9.egg-info/PKG-INFO
 thirdparty/gaussian_splatting/submodules/simple-knn/*egg-info
-
-generatecode.py
-getconfig.py
-test.sh
-*.sh
-log/*
-model/*
