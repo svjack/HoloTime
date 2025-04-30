@@ -1,12 +1,12 @@
 <div align="center">
 <img src='assets/logo.png' style="height:200px"></img>
 <h2 align="center"> <a href="https://github.com/PKU-YuanGroup/HoloTime/">HoloTime: Taming Video Diffusion Models for Panoramic 4D Scene Generation</a></h2>
- <a href='https://arxiv.org/abs/2409.02048'><img src='https://img.shields.io/badge/arXiv-2409.02048-b31b1b.svg'></a> &nbsp;
+ <a href='https://github.com/PKU-YuanGroup/HoloTime/'><img src='https://img.shields.io/badge/arXiv-2409.02048-b31b1b.svg'></a> &nbsp;
  <a href='https://zhouhyocean.github.io/holotime/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;
- <a href='https://www.youtube.com/watch?v=WGIEmu9eXmU'><img src='https://img.shields.io/badge/Youtube-Video-b31b1b.svg'></a>&nbsp;
+ <a href='https://www.youtube.com/watch?v=reJ7H-Pe2MQ'><img src='https://img.shields.io/badge/Youtube-Video-b31b1b.svg'></a>&nbsp;
  <a href='https://huggingface.co/Marblueocean/HoloTime'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a> &nbsp;
 
-_**[Haiyang Zhou*](https://scholar.google.com/citations?user=UOE8-qsAAAAJ&hl=zh-CN), [Wangbo Yu*](https://doubiiu.github.io/), [Jiawen Guan](), [Xinhua Cheng](https://xiaoyu258.github.io/), [Yonghong Tian&dagger;](), [Li Yuan&dagger;]()**_
+_**[Haiyang Zhou*](), [Wangbo Yu*](https://scholar.google.com/citations?user=UOE8-qsAAAAJ&hl=zh-CN), [Jiawen Guan](), [Xinhua Cheng](https://cxh0519.github.io/), [Yonghong Tian&dagger;](https://www.pkuml.org/staff/yhtian.html), [Li Yuan&dagger;](https://yuanli2333.github.io/)**_
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5>
 
 
@@ -173,7 +173,3 @@ Special thanks to [DynamiCrafter](https://github.com/Doubiiu/DynamiCrafter), [36
 ```
 To be updated.
 ```
-
-# 🔒 License
-
-This project is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
