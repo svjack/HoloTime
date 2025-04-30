@@ -114,7 +114,7 @@ We propose **HoloTime**, a framework that integrates video diffusion models to g
 # 🛠️ Requirements and Installation
 
 ```bash
-git clone https://github.com/PKU-YuanGroup/HoloTime
+git clone https://github.com/PKU-YuanGroup/HoloTime --recursive
 cd HoloTime
 conda create -n holotime python=3.10 -y
 conda activate holotime
