@@ -8,7 +8,7 @@ scene_dir=$data_dir/scene_0
 # Estimate Depth and prepare training data
 CUDA_VISIBLE_DEVICES=$device python3 scripts/gen_train_data.py \
 --input_dir $scene_dir \
---video_type refinement \
+--video_type enhancement \
 
 # Train the spacetime gaussian model (lite or full)
 CUDA_VISIBLE_DEVICES=$device python scripts/train_gaussian.py \

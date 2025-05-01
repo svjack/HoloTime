@@ -66,7 +66,7 @@ class ModelParams(ParamGroup):
         self._model_path = ""
         self._images = "images"
         self._resolution = -1
-        self._white_background = False
+        self.white_background = True
         self.data_device = "cuda"
         self.veryrify_llff = 0
         self.eval = False
@@ -87,6 +87,7 @@ class PipelineParams(ParamGroup):
         self.convert_SHs_python = False
         self.compute_cov3D_python = False
         self.debug = False
+        self.antialiasing = False
         super().__init__(parser, "Pipeline Parameters")
 
 class OptimizationParams(ParamGroup):
@@ -95,7 +96,7 @@ class OptimizationParams(ParamGroup):
         self.position_lr_init = 0.00016
         self.position_lr_final = 0.0000016
         self.position_lr_delay_mult = 0.01
-        self.position_lr_max_steps = 30_000
+        self.position_lr_max_steps = 35_000
         self.feature_lr = 0.0025
         self.featuret_lr = 0.001
         self.opacity_lr = 0.05
@@ -119,6 +120,7 @@ class OptimizationParams(ParamGroup):
         self.densify_grad_threshold = 0.0002
         self.rgb_lr = 0.0001
         self.desicnt = 6
+
         self.reg = 0 
         self.regl = 0.0001 
         self.shrinkscale = 2.0 
@@ -140,7 +142,7 @@ class OptimizationParams(ParamGroup):
         self.rayends = 7.5
         self.raystart = 0.7
         self.shuffleems = 1
-        self.prevpath = "1"
+        self.prevpath = "nothing"
         self.loadall = 0
         self.removescale = 5
         self.gtmask = 0 # 0 means not train with mask for undistorted gt image; 1 means 

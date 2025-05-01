@@ -38,7 +38,7 @@ def getparser():
     parser.add_argument('--port', type=int, default=6029)
     parser.add_argument('--debug_from', type=int, default=-2)
     parser.add_argument('--detect_anomaly', action='store_true', default=False)
-    parser.add_argument("--save_iterations", nargs="+", type=int, default=[7_000, 10000, 12000, 25_000, 30_000])
+    parser.add_argument("--save_iterations", nargs="+", type=int, default=[3000, 7_000, 15000, 20_000, 25_000, 30000])
     parser.add_argument("--test_iterations", default=-1, type=int)
 
     parser.add_argument("--quiet", action="store_true")
@@ -51,48 +51,35 @@ def getparser():
     parser.add_argument("--rdpip", type=str, default = "v2")
     parser.add_argument("--configpath", type=str, default = "None")
 
+    args = parser.parse_args(sys.argv[1:])
+    args.save_iterations.append(args.iterations)
     
+    print("Optimizing " + args.model_path)
     
-    # 1. Get default values
-    defaults = vars(parser.parse_args([]))
-
-    # 2. Get actual user-provided args
-    args = parser.parse_args()
-
-    # Optional: append current iteration to save list
-    args.save_iterations.append(args.iterations)  # Only if you use this logic elsewhere
-
-    # 3. Load config if provided
-    if os.path.exists(args.configpath) and args.configpath != "None":
-        print("Overriding from config:", args.configpath)
-        with open(args.configpath) as f:
-            config = json.load(f)
-
-        for k, v in config.items():
-            if hasattr(args, k):
-                current_val = getattr(args, k)
-                default_val = defaults.get(k)
-
-                if current_val == default_val:
-                    setattr(args, k, v)
-                    
-                else:
-                    print(f"Kept CLI override for '{k}': {current_val}")
-            else:
-                print(f"Unknown config key '{k}', skipping.")
-
-        print("Finished loading config.")
-
-    #
-    print(args)
-    print("Optimizing", args.model_path)
-
+    # Initialize system state (RNG)
     safe_state(args.quiet)
+
+
     torch.autograd.set_detect_anomaly(args.detect_anomaly)
+
+    # incase we provide config file not directly pass to the file
+    if os.path.exists(args.configpath) and args.configpath != "None":
+        print("overload config from " + args.configpath)
+        config = json.load(open(args.configpath))
+        for k in config.keys():
+            try:
+                value = getattr(args, k) 
+                newvalue = config[k]
+                setattr(args, k, newvalue)
+            except:
+                print("failed set config: " + k)
+        print("finish load config from " + args.configpath)
+    else:
+        raise ValueError("config file not exist or not provided")
 
     if not os.path.exists(args.model_path):
         os.makedirs(args.model_path)
-
+    
 
     return args, lp.extract(args), op.extract(args), pp.extract(args)
 
@@ -111,37 +98,37 @@ def gettestparse():
     parser.add_argument("--skip_train", action="store_true")
     parser.add_argument("--skip_test", action="store_true")
     parser.add_argument("--multiview", action="store_true")
-    parser.add_argument("--duration", default=50, type=int)
     parser.add_argument("--rgbfunction", type=str, default = "rgbv1")
-    parser.add_argument("--rdpip", type=str, default = "v3")
+    parser.add_argument("--rdpip", type=str, default = "test_ours_lite")
     parser.add_argument("--valloader", type=str, default = "colmap")
     parser.add_argument("--configpath", type=str, default = "1")
+    parser.add_argument("--save_folder", type=str, default = "test")
+
+    parser.add_argument("--has_gt", action="store_true", help="whether to save gt")
+    parser.add_argument("--make_video", action="store_true", help="whether to make video")
+    
 
     parser.add_argument("--quiet", action="store_true")
-    
-    # record default value 
-    defaults = vars(parser.parse_args([]))
-
-    # update newest terminal command
     args = get_combined_args(parser)
     print("Rendering " + args.model_path)
+    # configpath
     safe_state(args.quiet)
+    
     multiview = True if args.valloader.endswith("mv") else False
 
-    # if config file exisits
     if os.path.exists(args.configpath) and args.configpath != "None":
         print("overload config from " + args.configpath)
         config = json.load(open(args.configpath))
-        for k, v in config.items():
-            # not passed in by user
-            if hasattr(args, k) and getattr(args, k) == defaults.get(k):
-                setattr(args, k, v)
-            else:
-                print(f"Keeping command line value for '{k}'")
-
+        for k in config.keys():
+            try:
+                value = getattr(args, k) 
+                newvalue = config[k]
+                setattr(args, k, newvalue)
+            except:
+                print("failed set config: " + k)
         print("finish load config from " + args.configpath)
         print("args: " + str(args))
-
+        
     return args, model.extract(args), pipeline.extract(args), multiview
     
 def getcolmapsinglen3d(folder, offset):

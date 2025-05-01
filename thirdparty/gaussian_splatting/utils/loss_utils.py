@@ -14,7 +14,9 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 from math import exp
 
-def l1_loss(network_output, gt):
+def l1_loss(network_output, gt, mask=None):
+    if mask is not None:
+        return torch.abs((network_output - gt) * mask).mean()
     return torch.abs((network_output - gt)).mean()
 
 def l2_loss(network_output, gt):

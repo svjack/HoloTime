@@ -154,7 +154,8 @@ After generating the panoramic video, you can transform the panoramic video into
 ```bash
 sh run_reconstruction.sh
 ```
-Training Spacetime Gaussians need 48GB GPU memory.
+Reconstruct refinement video need 24GB GPU memory.
+Reconstruct enhancement video need 48GB GPU memory.
 
 ## 4D Scene Rendering
 Run the following command.

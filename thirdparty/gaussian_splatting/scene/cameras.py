@@ -19,6 +19,7 @@ from utils.graphics_utils import fov2focal
 from kornia import create_meshgrid
 from helper_model import pix2ndc
 from helper_train import getgtisint8
+#from feature_extractor import get_Feature_from_DinoV2
 import random 
 class Camera(nn.Module):
     def __init__(self, colmap_id, R, T, FoVx, FoVy, image, gt_alpha_mask,
@@ -35,6 +36,7 @@ class Camera(nn.Module):
         self.FoVy = FoVy
         self.image_name = image_name
         self.timestamp = timestamp
+        self.mask = gt_alpha_mask.half().cuda()
 
         try:
             self.data_device = torch.device(data_device)
@@ -48,7 +50,7 @@ class Camera(nn.Module):
                 self.original_image = (image*255).to(torch.uint8).to(self.data_device)
             else:
                 if "camera_" not in image_name:
-                    self.original_image = image.clamp(0.0, 1.0).to(self.data_device)
+                    self.original_image = image.clamp(0.0, 1.0).half().to(self.data_device)
                 else:
                     self.original_image = image.clamp(0.0, 1.0).half().to(self.data_device)
             

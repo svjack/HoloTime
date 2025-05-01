@@ -44,9 +44,15 @@ def loadCamv2(args, id, cam_info, resolution_scale):
         resolution = (int(orig_w / scale), int(orig_h / scale))
 
     resized_image_rgb = PILtoTorch(cam_info.image, resolution)
-
+    
     gt_image = resized_image_rgb[:3, ...]
-    loaded_mask = None
+
+    if cam_info.mask is None:
+        loaded_mask = None
+    else:
+        loaded_mask = torch.from_numpy(cam_info.mask)
+        #loaded_mask = resized_image_mask // 255.0
+    #loaded_mask = resized_image_mask[:1, ...]+ 1.0
 
     if resized_image_rgb.shape[1] == 4:
         loaded_mask = resized_image_rgb[3:4, ...]
@@ -59,6 +65,7 @@ def loadCamv2(args, id, cam_info, resolution_scale):
     else :
         rays_o = None
         rays_d = None
+
     return Camera(colmap_id=cam_info.uid, R=cam_info.R, T=cam_info.T, 
                   FoVx=cam_info.FovX, FoVy=cam_info.FovY, 
                   image=gt_image, gt_alpha_mask=loaded_mask,
@@ -243,9 +250,8 @@ def cameraList_from_camInfosv2(cam_infos, resolution_scale, args, ss=False):
     else:
         for id, c in enumerate(cam_infos):
             camera_list.append(loadCamv2ss(args, id, c, resolution_scale))
-            print("id", id)
-
     return camera_list
+
 def cameraList_from_camInfosv2nogt(cam_infos, resolution_scale, args):
     camera_list = []
 
