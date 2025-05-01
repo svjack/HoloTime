@@ -171,5 +171,13 @@ Special thanks to [DynamiCrafter](https://github.com/Doubiiu/DynamiCrafter), [36
 # ✏️ Citation
 
 ```
-To be updated.
+@misc{zhou2025holotimetamingvideodiffusion,
+      title={HoloTime: Taming Video Diffusion Models for Panoramic 4D Scene Generation}, 
+      author={Haiyang Zhou and Wangbo Yu and Jiawen Guan and Xinhua Cheng and Yonghong Tian and Li Yuan},
+      year={2025},
+      eprint={2504.21650},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.21650}, 
+}
 ```
